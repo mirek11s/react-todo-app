@@ -10,7 +10,10 @@ test("should render todo component", () => {
   expect(todoElement).toHaveTextContent("What's the plan for today")
 });
 
-// test('check props', () => {
-//     render(<Todo />);
-    
-// })
+test('check todos', () => {
+    const todo = {id: 2, value: "wash car"};
+    render(<Todo todos={todo}/>);
+    const todoElement = screen.getByTestId('todo-2');
+    expect(todoElement).toBeInTheDocument();
+    expect(todoElement).toHaveTextContent("wash car")
+})
